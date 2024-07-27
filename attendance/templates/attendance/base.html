@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Ishtika Homes{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: url("{% static 'images/background.png' %}") no-repeat center center fixed;
+            background-size: cover;
+            color: #343a40;
+            font-family: 'Arial', sans-serif;
+        }
+        .navbar {
+            background-color: #6c757d; /* Gray color for the navbar */
+        }
+        .navbar a {
+            color: white;
+        }
+        .container {
+            margin-top: 50px;
+            background-color: rgba(255, 255, 255, 0.8); /* Add a white background with some transparency */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .card {
+            background-color: #e9ecef;
+            border-color: #6c757d;
+        }
+        .btn-custom {
+            background-color: #ffb6c1; /* Light pastel pink */
+            border-color: #ffb6c1;
+            color: white;
+        }
+        .btn-custom:hover {
+            background-color: #ff69b4; /* Hot pink on hover */
+            border-color: #ff69b4;
+        }
+        footer {
+            background-color: #6c757d; /* Same color as the navbar */
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="https://ishtikahomes.com/">
+            Ishtika Homes
+            <img src="{% static 'images/ish_homes.png' %}" alt="Logo" style="height: 30px; width: 30px; margin-left: 10px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'employee_list' %}">Employees</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'attendance_list' %}">Attendance Records</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'admin_login' %}">Admin Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'user_login' %}">User Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <footer>
+        &copy; 2024 Ishtika Homes. All rights reserved.
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

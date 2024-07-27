@@ -1,0 +1,11 @@
+{% extends 'attendance/base.html' %}
+{% block title %}Mark Attendance - Ishtika Homes{% endblock %}
+
+{% block content %}
+<h1 class="mt-4">Mark Attendance for {{ employee.user.username }}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Mark Attendance</button>
+</form>
+{% endblock %}

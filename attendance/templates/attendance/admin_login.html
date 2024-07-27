@@ -1,0 +1,16 @@
+{% extends 'attendance/base.html' %}
+
+{% block title %}User Login{% endblock %}
+
+{% block content %}
+<h1>User Login</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <!-- <button type="submit" class="btn btn-primary">Login</button> -->
+    <p>If new user,login</p>
+    <a href="{% url 'register' %}" class="btn btn-custom">Login</a>
+    <a href="{% url 'employee_list' %}" class="btn btn-custom">Welcome</a>
+    
+</form>
+{% endblock %}

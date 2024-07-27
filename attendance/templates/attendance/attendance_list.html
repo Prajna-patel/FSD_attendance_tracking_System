@@ -1,0 +1,35 @@
+{% extends 'attendance/base.html' %}
+
+{% block title %}Attendance List - Ishtika Homes{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="title-style mt-4">Attendance List</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Department</th>
+                <!-- <th>Email</th> -->
+                <th>Date</th>
+                <th>Status</th>
+                <th>Time In</th>
+                <th>Wages</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in attendance_records %}
+                <tr>
+                    <td>{{ record.employee.user.username }}</td>
+                    <td>{{ record.employee.department }}</td>
+                    <!-- <td>{{ record.employee.email }}</td> -->
+                    <td>{{ record.date }}</td>
+                    <td>{{ record.status }}</td>
+                    <td>{{ record.time_in }}</td>
+                    <td>{{ record.wages }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
